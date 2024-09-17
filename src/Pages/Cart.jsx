@@ -3,11 +3,19 @@ import {Link} from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 
+import { clearItems } from  '../redux/Slices/cartSlice';
+
 import CartItem from "../components/Cart/СartItem";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
+  const  {totalPrice} = useSelector(state => state.cart)
+
+  const onClearCart = () => {
+    dispatch(clearItems(null))
+  }
+
     
   return (
         <div className="container container--cart">
@@ -28,7 +36,7 @@ const Cart = () => {
 <path d="M11.6666 9.16667V14.1667" stroke="#B6B6B6" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"></path>
 </svg>
 
-                <span>Очистить корзину</span>
+                <span onClick={onClearCart} > Очистить корзину</span>
               </div>
             </div>
             <div className="content__items" >
@@ -42,8 +50,8 @@ const Cart = () => {
             </div>
             <div className="cart__bottom">
               <div className="cart__bottom-details">
-                <span> Всего пицц: <b>3 шт.</b> </span>
-                <span> Сумма заказа: <b>900 ₽</b> </span>
+                <span> Всего пицц: <b>{items.length} шт.</b> </span>
+                <span> Сумма заказа: <b>{totalPrice} ₽</b> </span>
               </div>
               <div className="cart__bottom-buttons">
                 <Link to="/" className="button button--outline button--add go-back-btn">
