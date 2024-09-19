@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {addItem} from '../../redux/Slices/cartSlice';
-import { configureStore } from "@reduxjs/toolkit";
 
 const typeNames = ['тонкое','традиционное']
 
@@ -23,7 +22,6 @@ function PizzaBlock({id, title, price, imageUrl, sizes, types}){
       type: typeNames[activeType],
       size: activeSize,
     };
-    console.log('Adding item:', item);  // Логирование
     dispatch(addItem(item));
   };
   
