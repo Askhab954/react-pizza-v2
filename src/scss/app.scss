@@ -385,3 +385,18 @@ body {
     }
   }
 }
+
+.free-cart{
+  height: 712px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-free-cart{
+  width: 200px;
+  height: 200px;
+  background-image: url(../assets/img/free-icon-box.png);
+  background-size: cover;
+}

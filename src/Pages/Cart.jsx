@@ -15,9 +15,8 @@ const Cart = () => {
   const onClearCart = () => {
     dispatch(clearItems(null))
   }
-
     
-  return (
+  return (  items.length > 0 ? 
         <div className="container container--cart">
           <div className="cart">
             <div className="cart__top">
@@ -66,6 +65,9 @@ const Cart = () => {
                 </div>
               </div>
             </div>
+          </div> : <div className="free-cart">
+            <div className="icon-free-cart"></div>
+            <h1 className="text-icon-free-cart"> Корзина пуста</h1>
           </div>
         
     )
